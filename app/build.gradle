@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'ai.aura.liquidglass'
+    compileSdk 35
+    buildToolsVersion "35.0.0"
+
+    defaultConfig {
+        applicationId "ai.aura.liquidglass"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+        resConfigs "en"
+    }
+
+    signingConfigs {
+        release {
+            def ks = file("keystore/aura-release.jks")
+            if (ks.exists()) {
+                storeFile ks
+                storePassword System.getenv("AURA_STORE_PASS") ?: "aura-glass"
+                keyAlias System.getenv("AURA_KEY_ALIAS") ?: "aura"
+                keyPassword System.getenv("AURA_KEY_PASS") ?: "aura-glass"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            if (file("keystore/aura-release.jks").exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
+        debug {
+            applicationIdSuffix ".debug"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packagingOptions {
+        resources.excludes += ['META-INF/*']
+    }
+}
+
+// no external dependencies: the UI is a self-contained WebView surface
+dependencies { }
