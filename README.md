@@ -19,7 +19,8 @@ Liquid Glass material system, 4D depth, and macOS-style spring motion.
 
 | | |
 |---|---|
-| **APK** | [`apk/aura-liquid-glass-1.0.0.apk`](apk/aura-liquid-glass-1.0.0.apk) — 207 KB, signed |
+| **Download APK** | **[Aura 1.0.0 — release page](https://github.com/technicalnihilist-lgtm/aura-liquid-glass/releases/latest)** · 207 KB, signed |
+| Mirror | [`apk/aura-liquid-glass-1.0.0.apk`](apk/aura-liquid-glass-1.0.0.apk) in the repo |
 | **Package** | `ai.aura.liquidglass` |
 | **Requires** | Android 7.0 (API 24) and above, arm64 / armeabi-v7a / x86 |
 | **Install** | `adb install apk/aura-liquid-glass-1.0.0.apk` (or copy to the phone and tap) |
